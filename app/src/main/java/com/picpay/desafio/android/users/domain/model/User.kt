@@ -8,8 +8,8 @@ import com.google.gson.annotations.SerializedName
 @Entity
 data class User(
     @PrimaryKey
-    @SerializedName("id") val id: Int,
-    @SerializedName("img") val img: String,
-    @SerializedName("name") val name: String,
-    @SerializedName("username") val username: String
+    @SerializedName("id") val id: Int?,
+    @SerializedName("img") val img: String?,
+    @SerializedName("name") val name: String?,
+    @SerializedName("username") val username: String?
 )

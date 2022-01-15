@@ -1,7 +1,5 @@
 package com.picpay.desafio.android.users.di
 
-import android.app.Application
-import android.content.Context
 import androidx.lifecycle.ViewModel
 import com.picpay.desafio.android.core.di.AcitivtyScope
 import com.picpay.desafio.android.core.di.ViewModelKey

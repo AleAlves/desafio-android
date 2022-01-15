@@ -7,10 +7,10 @@ import javax.inject.Inject
 
 class FetchUsersUseCase @Inject constructor(private val repository: UsersRepository) {
 
-    operator fun invoke(onSuccess: (List<User>?) -> Unit, onError: (String?) -> Unit) {
+    operator fun invoke(onSuccess: (List<User>) -> Unit, onError: (String?) -> Unit) {
         try {
             val data = repository.fetchUsers()
-            onSuccess.invoke(data)
+            data?.let { onSuccess.invoke(it) }
         } catch (e: Exception) {
             onError.invoke(e.message.toString())
         }

@@ -1,9 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.appcompat.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:layout_gravity="center"
     android:background="@color/colorPrimaryDark"
+    android:orientation="vertical"
     tools:context=".users.presentation.ui.UsersActivity">
 
     <ViewFlipper
@@ -27,4 +29,4 @@
     </ViewFlipper>
 
 
-</androidx.core.widget.NestedScrollView>
+</androidx.appcompat.widget.LinearLayoutCompat>

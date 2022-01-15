@@ -1,10 +1,7 @@
 package com.picpay.desafio.android.users.presentation.ui
 
 import android.os.Bundle
-import android.view.View
-import android.widget.ProgressBar
-import android.widget.Toast
-import android.widget.ViewFlipper
+import android.widget.*
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -18,8 +15,9 @@ class UsersActivity : DaggerAppCompatActivity() {
 
     private lateinit var recyclerView: RecyclerView
     private lateinit var progressBar: ProgressBar
-    private lateinit var adapter: UserListAdapter
     private lateinit var flipper: ViewFlipper
+    private lateinit var error: TextView
+    private lateinit var retry: ImageButton
 
     @Inject
     lateinit var viewModel: UserViewModel
@@ -29,6 +27,7 @@ class UsersActivity : DaggerAppCompatActivity() {
         setContentView(R.layout.activity_main)
         setupView()
         setupObserver()
+        setUpListeners()
         viewModel.fetch()
     }
 
@@ -36,8 +35,9 @@ class UsersActivity : DaggerAppCompatActivity() {
         recyclerView = findViewById(R.id.recyclerView)
         progressBar = findViewById(R.id.user_list_progress_bar)
         flipper = findViewById(R.id.flipper)
-        adapter = UserListAdapter()
-        recyclerView.adapter = adapter
+        error = findViewById(R.id.textViewErrorMessage)
+        retry = findViewById(R.id.buttonRetry)
+        recyclerView.adapter = viewModel.adapter
         recyclerView.layoutManager = LinearLayoutManager(this)
     }
 
@@ -45,9 +45,15 @@ class UsersActivity : DaggerAppCompatActivity() {
         viewModel.state.observe(this, Observer {
             onViewStateChange(it)
         })
-        viewModel.users.observe(this, Observer {
-            adapter.users = it
+        viewModel.error.observe(this, Observer {
+            Toast.makeText(this, it, Toast.LENGTH_LONG).show()
         })
+    }
+
+    private fun setUpListeners() {
+        retry.setOnClickListener {
+            viewModel.fetch()
+        }
     }
 
     private fun onViewStateChange(viewState: ViewState) {

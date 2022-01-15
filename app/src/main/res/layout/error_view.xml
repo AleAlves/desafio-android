@@ -2,12 +2,21 @@
 <androidx.appcompat.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:gravity="center">
+    android:gravity="center"
+    android:orientation="vertical">
 
     <TextView
         android:id="@+id/textViewErrorMessage"
+        style="@style/ScreenTitleTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="An error occoured" />
+        android:text="@string/error" />
+
+    <ImageButton
+        android:id="@+id/buttonRetry"
+        android:layout_width="@dimen/size_lg"
+        android:layout_height="@dimen/size_lg"
+        android:layout_marginTop="@dimen/spacing_lg"
+        android:src="@drawable/ic_baseline_refresh_24" />
 
 </androidx.appcompat.widget.LinearLayoutCompat>
