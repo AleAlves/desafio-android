@@ -2,7 +2,7 @@ package com.picpay.desafio.android.users.data.dao
 
 import androidx.room.TypeConverter
 import com.google.gson.Gson
-import com.picpay.desafio.android.users.data.model.User
+import com.picpay.desafio.android.users.domain.model.User
 
 class UserTypeConvert {
     @TypeConverter

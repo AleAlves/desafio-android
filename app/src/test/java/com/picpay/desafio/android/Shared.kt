@@ -1,6 +1,6 @@
 package com.picpay.desafio.android
 
-import com.picpay.desafio.android.users.data.model.User
+import com.picpay.desafio.android.users.domain.model.User
 
 internal val user = User(name = "", id = 1, img = "", username = "")
 

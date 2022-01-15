@@ -1,6 +1,6 @@
 package com.picpay.desafio.android.users.data
 
-import com.picpay.desafio.android.users.data.model.User
+import com.picpay.desafio.android.users.domain.model.User
 import javax.inject.Inject
 
 

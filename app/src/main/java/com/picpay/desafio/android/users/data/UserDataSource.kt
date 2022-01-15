@@ -1,27 +1,43 @@
 package com.picpay.desafio.android.users.data
 
-import com.picpay.desafio.android.users.data.model.User
+import com.picpay.desafio.android.users.domain.model.User
+import java.lang.Exception
 import javax.inject.Inject
 
 interface UserDataSource {
     fun fetch(): List<User>?
 }
 
-class UserLocalDataSource @Inject constructor(
+interface UserRemoteDataSource : UserDataSource
+
+interface UserLocalDataSource : UserDataSource {
+    fun update(users: List<User>?)
+}
+
+class UserLocalDataSourceImpl @Inject constructor(
     private val userDataBase: UserDataBase
-) : UserDataSource {
+) : UserLocalDataSource {
 
     override fun fetch(): List<User>? {
         return userDataBase.user().fetch()
     }
+
+    override fun update(users: List<User>?) {
+        userDataBase.user().clear()
+        userDataBase.user().update(users)
+    }
 }
 
-class UserRemoteDataSource @Inject constructor(
+class UserRemoteDataSourceImpl @Inject constructor(
     private val service: PicPayService
-) : UserDataSource {
+) : UserRemoteDataSource {
 
-    override fun fetch(): List<User>? {
-        return service.getUsers().execute().body()
+    override fun fetch(): List<User> {
+        val data = service.getUsers().execute()
+        if (data.isSuccessful) {
+            return data.body() ?: listOf()
+        }
+        throw Exception(data.code().toString())
     }
 }
 
@@ -34,6 +50,7 @@ class UserDataSourceImpl @Inject constructor(
         var data = local.fetch()
         if (data.isNullOrEmpty()) {
             data = remote.fetch()
+            local.update(data)
         }
         return data ?: listOf()
     }

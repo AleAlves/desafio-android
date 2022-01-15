@@ -1,10 +1,9 @@
 package com.picpay.desafio.android.users.data.dao
 
 import androidx.room.Dao
-import androidx.room.Delete
 import androidx.room.Insert
 import androidx.room.Query
-import com.picpay.desafio.android.users.data.model.User
+import com.picpay.desafio.android.users.domain.model.User
 
 @Dao
 interface UserDao {
@@ -13,7 +12,7 @@ interface UserDao {
     fun fetch(): List<User>?
 
     @Insert
-    fun insert(item: List<User>)
+    fun update(item: List<User>?)
 
     @Query("DELETE from user")
     fun clear()
