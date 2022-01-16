@@ -48,7 +48,6 @@ class UserViewModelTest {
         }
 
         every { repository.fetchUsers() } returns users
-        every { adapter.users } returns users
     }
 
     @After
@@ -59,6 +58,8 @@ class UserViewModelTest {
 
     @Test
     fun `when fetching users should return it's list successfully`() = runBlocking {
+
+        every { adapter.users } returns users
 
         viewModel.fetch()
 

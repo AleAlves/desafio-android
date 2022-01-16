@@ -15,6 +15,8 @@ class UserDataSourceImplTest {
     @Before
     fun setup() {
         userDataSource = UserDataSourceImpl(remote, local)
+
+        every { local.update(any()) } returns Unit
     }
 
     @Test

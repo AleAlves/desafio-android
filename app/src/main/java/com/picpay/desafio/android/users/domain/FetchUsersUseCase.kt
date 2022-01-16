@@ -10,7 +10,10 @@ class FetchUsersUseCase @Inject constructor(
     private val repository: UsersRepository
 ) : BaseUseCase<List<User>>() {
 
-    override fun invoke(onSuccess: (List<User>) -> Unit, onError: (String?) -> Unit) {
+    override fun invoke(
+        onSuccess: (List<User>) -> Unit,
+        onError: (String?) -> Unit
+    ) {
         try {
             val data = repository.fetchUsers()
             data?.let { onSuccess.invoke(it) }
