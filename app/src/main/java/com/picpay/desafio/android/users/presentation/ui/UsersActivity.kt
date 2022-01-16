@@ -7,24 +7,22 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.picpay.desafio.android.R
 import com.picpay.desafio.android.core.ui.ViewState
+import com.picpay.desafio.android.databinding.ActivityUsersBinding
 import com.picpay.desafio.android.users.presentation.UserViewModel
 import dagger.android.support.DaggerAppCompatActivity
 import javax.inject.Inject
 
 class UsersActivity : DaggerAppCompatActivity() {
 
-    private lateinit var recyclerView: RecyclerView
-    private lateinit var progressBar: ProgressBar
-    private lateinit var flipper: ViewFlipper
-    private lateinit var error: TextView
-    private lateinit var retry: ImageButton
-
     @Inject
     lateinit var viewModel: UserViewModel
 
+    private lateinit var binding: ActivityUsersBinding
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        binding = ActivityUsersBinding.inflate(layoutInflater)
+        setContentView(binding.root)
         setupView()
         setupObserver()
         setUpListeners()
@@ -32,13 +30,8 @@ class UsersActivity : DaggerAppCompatActivity() {
     }
 
     private fun setupView() {
-        recyclerView = findViewById(R.id.recyclerView)
-        progressBar = findViewById(R.id.user_list_progress_bar)
-        flipper = findViewById(R.id.flipper)
-        error = findViewById(R.id.textViewErrorMessage)
-        retry = findViewById(R.id.buttonRetry)
-        recyclerView.adapter = viewModel.adapter
-        recyclerView.layoutManager = LinearLayoutManager(this)
+        binding.normal.recyclerView.adapter = viewModel.adapter
+        binding.normal.recyclerView.layoutManager = LinearLayoutManager(this)
     }
 
     private fun setupObserver() {
@@ -51,12 +44,12 @@ class UsersActivity : DaggerAppCompatActivity() {
     }
 
     private fun setUpListeners() {
-        retry.setOnClickListener {
+        binding.error.buttonRetry.setOnClickListener {
             viewModel.fetch()
         }
     }
 
     private fun onViewStateChange(viewState: ViewState) {
-        flipper.displayedChild = viewState.state
+        binding.flipper.displayedChild = viewState.state
     }
 }

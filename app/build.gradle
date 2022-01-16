@@ -119,8 +119,6 @@ dependencies {
     testImplementation("org.jetbrains.kotlinx:kotlinx-coroutines-test:$coroutines")
     testImplementation("io.mockk:mockk:$mockito_version")
     testImplementation("junit:junit:$junit_version")
-    testImplementation 'org.robolectric:robolectric:4.3'
-    androidTestImplementation 'org.robolectric:robolectric:4.3'
     androidTestImplementation("androidx.arch.core:core-testing:$androidx_arch_test_version")
     androidTestImplementation("org.jetbrains.kotlinx:kotlinx-coroutines-test:$coroutines")
     androidTestImplementation "androidx.test.ext:junit:$androidx_test_ext_version"

@@ -8,15 +8,19 @@ import android.widget.ProgressBar
 import android.widget.TextView
 import com.picpay.desafio.android.R
 import com.picpay.desafio.android.core.util.loadImage
+import com.picpay.desafio.android.databinding.UserListItemBinding
+import com.picpay.desafio.android.databinding.UsersViewBinding
 import com.picpay.desafio.android.users.domain.model.User
 
 class UserItemView(context: Context) : LinearLayout(context) {
 
-    private val textViewName: TextView
-    private val textViewUserName: TextView
-    private val imageViewUserPic: ImageView
-    private val progressImagePlaceholder: ProgressBar
     private val layoutInflater: LayoutInflater get() = LayoutInflater.from(context)
+
+    private var binding: UserListItemBinding = UserListItemBinding.inflate(
+        layoutInflater,
+        this,
+        true
+    )
 
     var user: User? = null
         set(value) {
@@ -24,17 +28,9 @@ class UserItemView(context: Context) : LinearLayout(context) {
             bind(value)
         }
 
-    init {
-        layoutInflater.inflate(R.layout.list_item_user, this, true)
-        textViewName = findViewById(R.id.name)
-        textViewUserName = findViewById(R.id.username)
-        imageViewUserPic = findViewById(R.id.picture)
-        progressImagePlaceholder = findViewById(R.id.progressBar)
-    }
-
     private fun bind(user: User?) {
-        textViewName.text = user?.name
-        textViewUserName.text = user?.username
-        imageViewUserPic.loadImage(user?.img, progressImagePlaceholder)
+        binding.name.text = user?.name
+        binding.username.text = user?.username
+        binding.picture.loadImage(user?.img, binding.progressBar)
     }
 }
