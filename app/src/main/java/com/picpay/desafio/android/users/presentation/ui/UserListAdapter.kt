@@ -4,10 +4,11 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.picpay.desafio.android.users.domain.model.User
+import javax.inject.Inject
 
 class UsersCollectionViewHolder(val view: UserItemView) : RecyclerView.ViewHolder(view)
 
-class UserListAdapter : RecyclerView.Adapter<UsersCollectionViewHolder>() {
+class UserListAdapter @Inject constructor() : RecyclerView.Adapter<UsersCollectionViewHolder>() {
 
     var users = emptyList<User>()
         set(value) {

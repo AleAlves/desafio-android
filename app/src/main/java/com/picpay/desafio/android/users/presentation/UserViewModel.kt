@@ -15,13 +15,13 @@ class UserViewModel @Inject constructor(
 ) : BaseViewModel() {
 
     fun fetch() {
-        viewModelScope.launch(Dispatchers.IO) {
+        viewModelScope.launch {
             setViewState(ViewState.SKELETON)
-            fetchUsersUseCase(
-                onSuccess = {
+            fetchUsersUseCase.invoke(
+                {
                     adapter.users = it
                     setViewState(ViewState.NORMAL)
-                }, onError = {
+                }, {
                     super.error.postValue(it)
                     setViewState(ViewState.ERROR)
                 }

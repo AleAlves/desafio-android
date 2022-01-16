@@ -2,15 +2,13 @@ package com.picpay.desafio.android.users.presentation.ui
 
 import android.content.Context
 import android.view.LayoutInflater
-import android.view.View
 import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.ProgressBar
 import android.widget.TextView
 import com.picpay.desafio.android.R
+import com.picpay.desafio.android.core.util.loadImage
 import com.picpay.desafio.android.users.domain.model.User
-import com.squareup.picasso.Callback
-import com.squareup.picasso.Picasso
 
 class UserItemView(context: Context) : LinearLayout(context) {
 
@@ -37,18 +35,6 @@ class UserItemView(context: Context) : LinearLayout(context) {
     private fun bind(user: User?) {
         textViewName.text = user?.name
         textViewUserName.text = user?.username
-        progressImagePlaceholder.visibility = View.VISIBLE
-        Picasso.get()
-            .load(user?.img)
-            .error(R.drawable.ic_round_account_circle)
-            .into(imageViewUserPic, object : Callback {
-                override fun onSuccess() {
-                    imageViewUserPic.visibility = View.GONE
-                }
-
-                override fun onError(e: Exception?) {
-                    imageViewUserPic.visibility = View.GONE
-                }
-            })
+        imageViewUserPic.loadImage(user?.img, progressImagePlaceholder)
     }
 }
