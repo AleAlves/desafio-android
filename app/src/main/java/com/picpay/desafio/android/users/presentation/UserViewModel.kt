@@ -15,7 +15,7 @@ class UserViewModel @Inject constructor(
 ) : BaseViewModel() {
 
     fun fetch() {
-        viewModelScope.launch {
+        viewModelScope.launch(Dispatchers.IO) {
             setViewState(ViewState.SKELETON)
             fetchUsersUseCase.invoke(
                 {

@@ -63,7 +63,10 @@ class UserViewModelTest {
 
         viewModel.fetch()
 
-        verify { stateObs.onChanged(ViewState.NORMAL) }
+        coVerifyAll {
+            stateObs.onChanged(ViewState.SKELETON)
+            stateObs.onChanged(ViewState.NORMAL)
+        }
 
         assert(adapter.users.isNotEmpty())
     }
@@ -73,10 +76,15 @@ class UserViewModelTest {
     fun `when fetching users should return a empty list successfully`() = runBlocking {
 
         every { repository.fetchUsers() } returns listOf()
+        every { adapter.users } returns listOf()
+
 
         viewModel.fetch()
 
-        verify { stateObs.onChanged(ViewState.NORMAL) }
+        coVerifyAll {
+            stateObs.onChanged(ViewState.SKELETON)
+            stateObs.onChanged(ViewState.NORMAL)
+        }
 
         assert(adapter.users.isEmpty())
     }
@@ -89,7 +97,10 @@ class UserViewModelTest {
 
         viewModel.fetch()
 
-        verify { stateObs.onChanged(ViewState.ERROR) }
+        coVerifyAll {
+            stateObs.onChanged(ViewState.SKELETON)
+            stateObs.onChanged(ViewState.ERROR)
+        }
 
         assert(adapter.users.isEmpty())
     }
