@@ -47,9 +47,10 @@ class UserDataSourceImpl @Inject constructor(
 ) :
     UserDataSource {
     override fun fetch(): List<User> {
-        var data = local.fetch()
+        var data = remote.fetch()
         if (data.isNullOrEmpty()) {
-            data = remote.fetch()
+            data = local.fetch()
+        } else {
             local.update(data)
         }
         return data ?: listOf()

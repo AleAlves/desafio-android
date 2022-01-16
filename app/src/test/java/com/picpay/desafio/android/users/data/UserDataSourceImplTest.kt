@@ -22,6 +22,7 @@ class UserDataSourceImplTest {
     @Test
     fun `given a requisition to fetch users then return it from local source successfully`() {
         every { local.fetch() } returns users
+        every { remote.fetch() } returns null
 
         val data = userDataSource.fetch()
 
