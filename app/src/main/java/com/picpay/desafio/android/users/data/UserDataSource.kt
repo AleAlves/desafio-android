@@ -34,10 +34,7 @@ class UserRemoteDataSourceImpl @Inject constructor(
 
     override fun fetch(): List<User> {
         val data = service.getUsers().execute()
-        if (data.isSuccessful) {
-            return data.body() ?: listOf()
-        }
-        throw Exception(data.code().toString())
+        return data.body() ?: listOf()
     }
 }
 
@@ -47,11 +44,16 @@ class UserDataSourceImpl @Inject constructor(
 ) :
     UserDataSource {
     override fun fetch(): List<User> {
-        var data = remote.fetch()
-        if (data.isNullOrEmpty()) {
+        var data: List<User>?
+        try {
+            data = remote.fetch()
+            if (data.isNullOrEmpty()) {
+                data = local.fetch()
+            } else {
+                local.update(data)
+            }
+        } catch (e: Exception) {
             data = local.fetch()
-        } else {
-            local.update(data)
         }
         return data ?: listOf()
     }
