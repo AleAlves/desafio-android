@@ -50,11 +50,9 @@ android {
         }
     }
     packagingOptions {
-        exclude "**/attach_hotspot_windows.dll"
-        exclude "META-INF/licenses/**"
-        exclude "META-INF/AL2.0"
-        exclude "META-INF/LGPL2.1"
+        exclude 'META-INF/**'
     }
+
 }
 
 dependencies {
@@ -85,7 +83,7 @@ dependencies {
     annotationProcessor("com.google.dagger:dagger-android-processor:$dagger_version")
     implementation("com.google.dagger:dagger-android-support:$dagger_version")
     kapt("com.google.dagger:dagger-compiler:$dagger_version")
-    kapt ("com.google.dagger:dagger-android-processor:$dagger_version")
+    kapt("com.google.dagger:dagger-android-processor:$dagger_version")
 
     //Room
     implementation("androidx.room:room-runtime:$room_version")
@@ -105,13 +103,15 @@ dependencies {
     testImplementation("org.jetbrains.kotlinx:kotlinx-coroutines-test:$coroutines_version")
     testImplementation("io.mockk:mockk:$mockito_version")
     testImplementation("junit:junit:$junit_version")
+    testImplementation("org.robolectric:robolectric:$robolectric_version")
+
     androidTestImplementation("androidx.test:core:$androidx_test_version")
     androidTestImplementation("androidx.arch.core:core-testing:$androidx_arch_test_version")
     androidTestImplementation("org.jetbrains.kotlinx:kotlinx-coroutines-test:$coroutines_version")
-    androidTestImplementation "androidx.test.ext:junit:$androidx_test_ext_version"
-    androidTestImplementation "androidx.test.espresso:espresso-core:$expresso_version"
-    androidTestImplementation "com.android.support.test.espresso:espresso-core:$expresso_version"
-    androidTestImplementation "com.android.support.test:runner:$suport_runner_version"
-    androidTestImplementation "androidx.test:core-ktx:$androidx_test_version"
+    androidTestImplementation("androidx.test.ext:junit:$androidx_test_ext_version")
+    androidTestImplementation("androidx.test.espresso:espresso-core:$expresso_version")
+    androidTestImplementation("com.android.support.test.espresso:espresso-core:$expresso_version")
+    androidTestImplementation("com.android.support.test:runner:$suport_runner_version")
+    androidTestImplementation("androidx.test:core-ktx:$androidx_test_version")
     androidTestImplementation("io.mockk:mockk-android:$mockito_version")
 }

@@ -16,7 +16,7 @@ class UserItemView(context: Context) : LinearLayout(context) {
 
     private val layoutInflater: LayoutInflater get() = LayoutInflater.from(context)
 
-    private var binding: UserListItemBinding = UserListItemBinding.inflate(
+    internal var binding: UserListItemBinding = UserListItemBinding.inflate(
         layoutInflater,
         this,
         true

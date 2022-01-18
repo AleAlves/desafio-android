@@ -17,7 +17,7 @@ class UsersActivity : DaggerAppCompatActivity() {
     @Inject
     lateinit var viewModel: UserViewModel
 
-    private lateinit var binding: ActivityUsersBinding
+    lateinit var binding: ActivityUsersBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -35,10 +35,10 @@ class UsersActivity : DaggerAppCompatActivity() {
     }
 
     private fun setupObserver() {
-        viewModel.state.observe(this, Observer {
+        viewModel.state.observe(this, {
             onViewStateChange(it)
         })
-        viewModel.error.observe(this, Observer {
+        viewModel.error.observe(this, {
             Toast.makeText(this, it, Toast.LENGTH_LONG).show()
         })
     }
