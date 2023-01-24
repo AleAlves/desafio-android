@@ -6,17 +6,19 @@
     android:orientation="vertical">
 
     <TextView
-        android:id="@+id/textViewErrorMessage"
+        android:id="@+id/error_message_textview"
         style="@style/ScreenTitleTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/error" />
+        android:layout_gravity="center"
+        android:layout_margin="@dimen/size_md" />
 
     <ImageButton
-        android:id="@+id/buttonRetry"
-        android:layout_width="@dimen/size_lg"
-        android:layout_height="@dimen/size_lg"
-        android:layout_marginTop="@dimen/spacing_lg"
+        android:id="@+id/retry_button"
+        android:layout_width="@dimen/size_xl"
+        android:layout_height="@dimen/size_xl"
+        android:layout_marginTop="@dimen/size_lg"
+        android:background="?attr/selectableItemBackgroundBorderless"
         android:src="@drawable/ic_baseline_refresh_24" />
 
 </androidx.appcompat.widget.LinearLayoutCompat>

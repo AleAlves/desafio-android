@@ -5,28 +5,16 @@
     android:layout_height="match_parent"
     android:layout_gravity="center"
     android:background="@color/colorPrimaryDark"
-    android:orientation="vertical"
-    tools:context=".users.presentation.ui.UsersActivity">
+    android:orientation="vertical">
 
-    <ViewFlipper
-        android:id="@+id/flipper"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        tools:context=".shop.presentation.ui.ShopActivity">
+    <include
+        android:id="@+id/users_error_view"
+        layout="@layout/users_error_view"
+        android:visibility="gone" />
 
-        <include
-            android:id="@+id/skeleton"
-            layout="@layout/skeleton_view" />
-
-        <include
-            android:id="@+id/normal"
-            layout="@layout/users_view" />
-
-        <include
-            android:id="@+id/error"
-            layout="@layout/error_view" />
-
-    </ViewFlipper>
-
+    <include
+        android:id="@+id/users_content_view"
+        layout="@layout/users_view"
+        android:visibility="visible" />
 
 </androidx.appcompat.widget.LinearLayoutCompat>

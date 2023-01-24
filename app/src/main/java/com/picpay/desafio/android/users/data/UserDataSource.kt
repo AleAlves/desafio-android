@@ -1,7 +1,6 @@
 package com.picpay.desafio.android.users.data
 
 import com.picpay.desafio.android.users.domain.model.User
-import java.lang.Exception
 import javax.inject.Inject
 
 interface UserDataSource {
@@ -11,20 +10,16 @@ interface UserDataSource {
 interface UserRemoteDataSource : UserDataSource
 
 interface UserLocalDataSource : UserDataSource {
-    fun update(users: List<User>?)
+    fun setCache(users: List<User>?)
 }
 
-class UserLocalDataSourceImpl @Inject constructor(
-    private val userDataBase: UserDataBase
-) : UserLocalDataSource {
+class UserLocalDataSourceImpl @Inject constructor() : UserLocalDataSource {
 
-    override fun fetch(): List<User>? {
-        return userDataBase.user().fetch()
+    override fun fetch(): List<User> {
+        return listOf()
     }
 
-    override fun update(users: List<User>?) {
-        userDataBase.user().clear()
-        userDataBase.user().update(users)
+    override fun setCache(users: List<User>?) {
     }
 }
 
@@ -32,10 +27,7 @@ class UserRemoteDataSourceImpl @Inject constructor(
     private val service: PicPayService
 ) : UserRemoteDataSource {
 
-    override fun fetch(): List<User> {
-        val data = service.getUsers().execute()
-        return data.body() ?: listOf()
-    }
+    override fun fetch(): List<User>? = service.getUsers().execute().body()
 }
 
 class UserDataSourceImpl @Inject constructor(
@@ -43,18 +35,5 @@ class UserDataSourceImpl @Inject constructor(
     private val local: UserLocalDataSource
 ) :
     UserDataSource {
-    override fun fetch(): List<User> {
-        var data: List<User>?
-        try {
-            data = remote.fetch()
-            if (data.isNullOrEmpty()) {
-                data = local.fetch()
-            } else {
-                local.update(data)
-            }
-        } catch (e: Exception) {
-            data = local.fetch()
-        }
-        return data ?: listOf()
-    }
+    override fun fetch() = remote.fetch()
 }

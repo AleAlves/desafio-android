@@ -29,7 +29,7 @@ class UserLocalDataSourceImplTest {
 
     @Test
     fun `when given a user list from remote then should persist a user list locally`() {
-        local.update(users)
+        local.setCache(users)
         val data = local.fetch()
         assert(data?.isNotEmpty() == true)
     }

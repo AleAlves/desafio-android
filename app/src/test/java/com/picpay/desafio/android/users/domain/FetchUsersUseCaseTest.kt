@@ -46,7 +46,7 @@ class FetchUsersUseCaseTest {
         every { repository.fetchUsers() } throws Exception("Error")
 
         fetchUsersUseCase.invoke(
-            {}, onError = {
+            {}, onFailure = {
                 assert(it == "Error")
             })
     }

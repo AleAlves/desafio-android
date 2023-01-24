@@ -5,14 +5,12 @@ import javax.inject.Inject
 
 
 interface UsersRepository {
-    fun fetchUsers() : List<User>?
+    fun fetchUsers(): List<User>?
 }
 
 class UsersRepositoryImpl @Inject constructor(
     private val userDataSource: UserDataSource
 ) : UsersRepository {
 
-    override fun fetchUsers(): List<User>? {
-        return userDataSource.fetch()
-    }
+    override fun fetchUsers(): List<User>? = userDataSource.fetch()
 }
