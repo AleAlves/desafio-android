@@ -10,28 +10,27 @@ import com.picpay.desafio.android.feature.users.databinding.UsersCollectionViewB
 import com.picpay.desafio.android.feature.users.domain.model.UserVO
 import com.picpay.desafio.android.feature.users.presentation.ui.adapter.UsersAdapter
 
-class UsersCollectionView(
+class UsersListView(
     context: Context,
     attributeSet: AttributeSet
 ) : LinearLayout(context, attributeSet) {
 
     private val adapter = UsersAdapter()
-    private val layoutInflater: LayoutInflater get() = LayoutInflater.from(context)
 
     private var binding = UsersCollectionViewBinding.inflate(
-        layoutInflater,
+        LayoutInflater.from(context),
         this,
         true
     )
-
-    fun setData(vos: List<UserVO>) {
-        adapter.differ.submitList(vos)
-    }
 
     init {
         binding.usersCollectionRecyclerview.layoutManager = LinearLayoutManager(context).apply {
             orientation = RecyclerView.VERTICAL
         }
         binding.usersCollectionRecyclerview.adapter = adapter
+    }
+
+    fun setData(vos: List<UserVO>) {
+        adapter.items.submitList(vos)
     }
 }

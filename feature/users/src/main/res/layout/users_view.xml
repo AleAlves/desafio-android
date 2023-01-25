@@ -35,7 +35,7 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <com.picpay.desafio.android.feature.users.presentation.ui.UsersCollectionView
+        <com.picpay.desafio.android.feature.users.presentation.ui.UsersListView
             android:id="@+id/users_collection_view"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

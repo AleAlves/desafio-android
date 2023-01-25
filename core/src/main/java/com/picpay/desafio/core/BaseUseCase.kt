@@ -4,6 +4,6 @@ abstract class BaseUseCase<T> {
 
     abstract operator fun invoke(
         onSuccess: (T) -> Unit,
-        onFailure: (String) -> Unit
+        onFailure: (String) -> Unit = {}
     )
 }

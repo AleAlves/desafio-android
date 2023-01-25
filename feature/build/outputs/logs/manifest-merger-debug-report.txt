@@ -1,25 +1,25 @@
 -- Merging decision tree log ---
 manifest
-ADDED from /Users/alesonalves/git/desafio-android/feature/build/intermediates/tmp/ProcessLibraryManifest/debug/tempAndroidManifest3624721445232022161.xml:2:13-3:63
-INJECTED from /Users/alesonalves/git/desafio-android/feature/build/intermediates/tmp/ProcessLibraryManifest/debug/tempAndroidManifest3624721445232022161.xml:2:13-3:63
-INJECTED from /Users/alesonalves/git/desafio-android/feature/build/intermediates/tmp/ProcessLibraryManifest/debug/tempAndroidManifest3624721445232022161.xml:2:13-3:63
+ADDED from /Users/alesonalves/git/desafio-android/feature/build/intermediates/tmp/ProcessLibraryManifest/debug/tempAndroidManifest7939261927372708362.xml:2:13-3:63
+INJECTED from /Users/alesonalves/git/desafio-android/feature/build/intermediates/tmp/ProcessLibraryManifest/debug/tempAndroidManifest7939261927372708362.xml:2:13-3:63
+INJECTED from /Users/alesonalves/git/desafio-android/feature/build/intermediates/tmp/ProcessLibraryManifest/debug/tempAndroidManifest7939261927372708362.xml:2:13-3:63
 	package
-		ADDED from /Users/alesonalves/git/desafio-android/feature/build/intermediates/tmp/ProcessLibraryManifest/debug/tempAndroidManifest3624721445232022161.xml:3:16-60
-		INJECTED from /Users/alesonalves/git/desafio-android/feature/build/intermediates/tmp/ProcessLibraryManifest/debug/tempAndroidManifest3624721445232022161.xml
-		INJECTED from /Users/alesonalves/git/desafio-android/feature/build/intermediates/tmp/ProcessLibraryManifest/debug/tempAndroidManifest3624721445232022161.xml
+		ADDED from /Users/alesonalves/git/desafio-android/feature/build/intermediates/tmp/ProcessLibraryManifest/debug/tempAndroidManifest7939261927372708362.xml:3:16-60
+		INJECTED from /Users/alesonalves/git/desafio-android/feature/build/intermediates/tmp/ProcessLibraryManifest/debug/tempAndroidManifest7939261927372708362.xml
+		INJECTED from /Users/alesonalves/git/desafio-android/feature/build/intermediates/tmp/ProcessLibraryManifest/debug/tempAndroidManifest7939261927372708362.xml
 	xmlns:android
-		ADDED from /Users/alesonalves/git/desafio-android/feature/build/intermediates/tmp/ProcessLibraryManifest/debug/tempAndroidManifest3624721445232022161.xml:2:23-81
+		ADDED from /Users/alesonalves/git/desafio-android/feature/build/intermediates/tmp/ProcessLibraryManifest/debug/tempAndroidManifest7939261927372708362.xml:2:23-81
 uses-sdk
-INJECTED from /Users/alesonalves/git/desafio-android/feature/build/intermediates/tmp/ProcessLibraryManifest/debug/tempAndroidManifest3624721445232022161.xml reason: use-sdk injection requested
-INJECTED from /Users/alesonalves/git/desafio-android/feature/build/intermediates/tmp/ProcessLibraryManifest/debug/tempAndroidManifest3624721445232022161.xml
-INJECTED from /Users/alesonalves/git/desafio-android/feature/build/intermediates/tmp/ProcessLibraryManifest/debug/tempAndroidManifest3624721445232022161.xml
-INJECTED from /Users/alesonalves/git/desafio-android/feature/build/intermediates/tmp/ProcessLibraryManifest/debug/tempAndroidManifest3624721445232022161.xml
-INJECTED from /Users/alesonalves/git/desafio-android/feature/build/intermediates/tmp/ProcessLibraryManifest/debug/tempAndroidManifest3624721445232022161.xml
+INJECTED from /Users/alesonalves/git/desafio-android/feature/build/intermediates/tmp/ProcessLibraryManifest/debug/tempAndroidManifest7939261927372708362.xml reason: use-sdk injection requested
+INJECTED from /Users/alesonalves/git/desafio-android/feature/build/intermediates/tmp/ProcessLibraryManifest/debug/tempAndroidManifest7939261927372708362.xml
+INJECTED from /Users/alesonalves/git/desafio-android/feature/build/intermediates/tmp/ProcessLibraryManifest/debug/tempAndroidManifest7939261927372708362.xml
+INJECTED from /Users/alesonalves/git/desafio-android/feature/build/intermediates/tmp/ProcessLibraryManifest/debug/tempAndroidManifest7939261927372708362.xml
+INJECTED from /Users/alesonalves/git/desafio-android/feature/build/intermediates/tmp/ProcessLibraryManifest/debug/tempAndroidManifest7939261927372708362.xml
 	android:targetSdkVersion
-		INJECTED from /Users/alesonalves/git/desafio-android/feature/build/intermediates/tmp/ProcessLibraryManifest/debug/tempAndroidManifest3624721445232022161.xml
-		ADDED from /Users/alesonalves/git/desafio-android/feature/build/intermediates/tmp/ProcessLibraryManifest/debug/tempAndroidManifest3624721445232022161.xml
-		INJECTED from /Users/alesonalves/git/desafio-android/feature/build/intermediates/tmp/ProcessLibraryManifest/debug/tempAndroidManifest3624721445232022161.xml
+		INJECTED from /Users/alesonalves/git/desafio-android/feature/build/intermediates/tmp/ProcessLibraryManifest/debug/tempAndroidManifest7939261927372708362.xml
+		ADDED from /Users/alesonalves/git/desafio-android/feature/build/intermediates/tmp/ProcessLibraryManifest/debug/tempAndroidManifest7939261927372708362.xml
+		INJECTED from /Users/alesonalves/git/desafio-android/feature/build/intermediates/tmp/ProcessLibraryManifest/debug/tempAndroidManifest7939261927372708362.xml
 	android:minSdkVersion
-		INJECTED from /Users/alesonalves/git/desafio-android/feature/build/intermediates/tmp/ProcessLibraryManifest/debug/tempAndroidManifest3624721445232022161.xml
-		ADDED from /Users/alesonalves/git/desafio-android/feature/build/intermediates/tmp/ProcessLibraryManifest/debug/tempAndroidManifest3624721445232022161.xml
-		INJECTED from /Users/alesonalves/git/desafio-android/feature/build/intermediates/tmp/ProcessLibraryManifest/debug/tempAndroidManifest3624721445232022161.xml
+		INJECTED from /Users/alesonalves/git/desafio-android/feature/build/intermediates/tmp/ProcessLibraryManifest/debug/tempAndroidManifest7939261927372708362.xml
+		ADDED from /Users/alesonalves/git/desafio-android/feature/build/intermediates/tmp/ProcessLibraryManifest/debug/tempAndroidManifest7939261927372708362.xml
+		INJECTED from /Users/alesonalves/git/desafio-android/feature/build/intermediates/tmp/ProcessLibraryManifest/debug/tempAndroidManifest7939261927372708362.xml
