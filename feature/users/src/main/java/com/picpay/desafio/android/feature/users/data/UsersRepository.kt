@@ -5,7 +5,7 @@ import javax.inject.Inject
 
 interface UsersRepository {
     fun fetchUsers(): List<UserModel>?
-    fun fetchUPlaceholders(): List<UserModel>
+    fun fetchPlaceholders(): List<UserModel>
 }
 
 class UsersRepositoryImpl @Inject constructor(
@@ -13,5 +13,5 @@ class UsersRepositoryImpl @Inject constructor(
 ) : UsersRepository {
 
     override fun fetchUsers(): List<UserModel>? = userDataSource.fetchUsers()
-    override fun fetchUPlaceholders(): List<UserModel> = userDataSource.fetchPlaceholders()
+    override fun fetchPlaceholders(): List<UserModel> = userDataSource.fetchPlaceholders()
 }

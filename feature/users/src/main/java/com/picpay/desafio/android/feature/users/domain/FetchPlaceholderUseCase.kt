@@ -13,7 +13,7 @@ class FetchPlaceholderUseCase @Inject constructor(
         onSuccess: (List<UserVO>) -> Unit,
         onFailure: (String) -> Unit
     ) {
-        repository.fetchUPlaceholders().run {
+        repository.fetchPlaceholders().run {
             onSuccess.invoke(this.map {
                 UserVO(user = it, isPlaceholder = true)
             })

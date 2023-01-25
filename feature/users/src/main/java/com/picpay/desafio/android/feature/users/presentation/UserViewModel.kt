@@ -29,36 +29,30 @@ class UserViewModel @Inject constructor(
 
     private fun loadPlaceholders() {
         placeHolderUsersUseCase(
-            onSuccess = {
-                onLoadPlaceholders(it)
-            }
+            onSuccess = ::onLoadPlaceholders
         )
     }
 
     private fun loadUsers() {
         fetchUsersUseCase(
-            onSuccess = {
-                onLoadUsers(it)
-            },
-            onFailure = {
-                onFailure(it)
-            }
+            onSuccess = ::onLoadUsers,
+            onFailure = ::onFailure
         )
     }
 
     private fun onLoadUsers(vos: List<UserVO>) {
-        state.postValue(UsersViewState.OnLoadUsers(vos))
+       setState(UsersViewState.OnLoadUsers(vos))
     }
 
     private fun onLoadPlaceholders(vos: List<UserVO>) {
-        state.postValue(UsersViewState.OnLoadPlaceholders(vos))
+        setState(UsersViewState.OnLoadPlaceholders(vos))
     }
 
     private fun onFailure(message: String) {
-        state.postValue(UsersViewState.OnFailure(message))
+        setState(UsersViewState.OnFailure(message))
     }
 
-    sealed class UsersViewState : com.picpay.desafio.core.ui.ViewState() {
+    sealed class UsersViewState : com.picpay.desafio.core.ui.BaseViewState() {
         data class OnFailure(val message: String) : UsersViewState()
         data class OnLoadUsers(val vos: List<UserVO>) : UsersViewState()
         data class OnLoadPlaceholders(val vos: List<UserVO>) : UsersViewState()

@@ -73,6 +73,7 @@ dependencies {
     implementation "de.hdodenhof:circleimageview:$circleimageview_version"
     implementation "com.squareup.picasso:picasso:$picasso_version"
     implementation 'com.facebook.shimmer:shimmer:0.5.0'
+    implementation 'androidx.swiperefreshlayout:swiperefreshlayout:1.1.0'
 
     //Retrofit
     implementation("com.squareup.retrofit2:retrofit:$retrofit_version")
@@ -81,8 +82,16 @@ dependencies {
 
     //Hilt
     implementation "com.google.dagger:hilt-android:2.44"
-    implementation 'androidx.swiperefreshlayout:swiperefreshlayout:1.1.0'
     kapt "com.google.dagger:hilt-compiler:2.44"
+
+    testImplementation("com.google.dagger:hilt-android-testing:2.44")
+    kaptTest("com.google.dagger:hilt-android-compiler:2.44")
+    testAnnotationProcessor("com.google.dagger:hilt-android-compiler:2.44")
+
+    androidTestImplementation("com.google.dagger:hilt-android-testing:2.44")
+    kaptAndroidTest("com.google.dagger:hilt-android-compiler:2.44")
+    androidTestAnnotationProcessor("com.google.dagger:hilt-android-compiler:2.44")
+
 
     //Moshi
     implementation 'com.squareup.moshi:moshi:1.8.0'
@@ -107,8 +116,6 @@ dependencies {
     androidTestImplementation("org.jetbrains.kotlinx:kotlinx-coroutines-test:$coroutines_version")
     androidTestImplementation("androidx.test.ext:junit:$androidx_test_ext_version")
     androidTestImplementation("androidx.test.espresso:espresso-core:$expresso_version")
-    androidTestImplementation("com.android.support.test.espresso:espresso-core:$expresso_version")
-    androidTestImplementation("com.android.support.test:runner:$suport_runner_version")
     androidTestImplementation("androidx.test:core-ktx:$androidx_test_version")
     androidTestImplementation("io.mockk:mockk-android:$mockito_version")
 
