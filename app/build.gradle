@@ -111,4 +111,8 @@ dependencies {
     androidTestImplementation("com.android.support.test:runner:$suport_runner_version")
     androidTestImplementation("androidx.test:core-ktx:$androidx_test_version")
     androidTestImplementation("io.mockk:mockk-android:$mockito_version")
+
+    implementation project (':core')
+    implementation project (':feature')
+    implementation project (':feature:users')
 }

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.appcompat.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_gravity="center"
+    android:background="@color/colorPrimaryDark"
+    android:orientation="vertical">
+
+    <include
+        android:id="@+id/users_error_view"
+        layout="@layout/users_error_view"
+        android:visibility="gone" />
+
+    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+        android:id="@+id/users_swipe_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <include
+            android:id="@+id/users_content_view"
+            layout="@layout/users_view"
+            android:visibility="visible" />
+    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+
+</androidx.appcompat.widget.LinearLayoutCompat>
