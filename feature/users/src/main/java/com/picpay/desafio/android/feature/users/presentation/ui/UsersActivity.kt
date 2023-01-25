@@ -28,11 +28,11 @@ class UsersActivity : BaseActivity() {
     private fun setupClickListeners() {
         with(binding) {
             usersErrorView.retryButton.setOnClickListener {
-                viewModel.fetch()
+                onFetchingUsers()
             }
             with(usersSwipeLayout) {
                 setOnRefreshListener {
-                    viewModel.fetch()
+                    onFetchingUsers()
                     isRefreshing = false
                 }
             }
@@ -49,10 +49,16 @@ class UsersActivity : BaseActivity() {
         }
     }
 
-    private fun onLoadUsers(vos: List<UserVO>) {
+    private fun onFetchingUsers() {
         with(binding) {
             usersContentView.root.visible()
             usersErrorView.root.gone()
+        }
+        viewModel.fetch()
+    }
+
+    private fun onLoadUsers(vos: List<UserVO>) {
+        with(binding) {
             usersContentView.usersCollectionView.setData(vos)
             if (vos.isEmpty()) {
                 setupEmptyView()

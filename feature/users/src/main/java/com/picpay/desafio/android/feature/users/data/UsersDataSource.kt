@@ -16,14 +16,14 @@ class UserDataSourceImpl @Inject constructor(
     private val tracker: Tracker
 ) : UserDataSource {
 
-    override fun fetchUsers(): List<UserModel> {
+    override fun fetchUsers(): List<UserModel>? {
         return with(local) {
             try {
                 stashNewData()
             } catch (e: Exception) {
                 tracker.log(e)
             }
-            fetchUsers() ?: listOf()
+            fetchUsers()
         }
     }
 
