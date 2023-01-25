@@ -1,4 +1,4 @@
-package com.picpay.desafio.android.users.domain.model
+package com.picpay.desafio.android.users.data.model
 
 
 data class User(

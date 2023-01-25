@@ -7,23 +7,18 @@ import com.picpay.desafio.android.users.data.UsersRepository
 import dagger.hilt.android.qualifiers.ApplicationContext
 import javax.inject.Inject
 
-class FetchUsersUseCase @Inject constructor(
+class PlaceholderUsersUseCase @Inject constructor(
     @ApplicationContext private val context: Context,
     private val repository: UsersRepository
 ) : BaseUseCase<List<UserVO>>() {
 
     override operator fun invoke(
-        onSuccess: (List<UserVO>) -> Unit,
-        onFailure: (String) -> Unit
+        onSuccess: (List<UserVO>) -> Unit, onFailure: (String) -> Unit
     ) {
-        repository.fetchUsers().run {
-            if (this == null) {
-                onFailure.invoke(context.getString(R.string.error))
-            } else {
-                onSuccess.invoke(this.map {
-                    UserVO(user = it, isPlaceholder = false)
-                })
-            }
+        repository.fetchUsersPlaceholders().run {
+            onSuccess.invoke(this.map {
+                UserVO(user = it, isPlaceholder = true)
+            })
         }
     }
 }

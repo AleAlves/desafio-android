@@ -2,8 +2,8 @@ package com.picpay.desafio.android.core
 
 abstract class BaseUseCase<T> {
 
-    abstract fun invoke(
+    abstract operator fun invoke(
         onSuccess: (T) -> Unit,
-        onFailure: (String?) -> Unit
+        onFailure: (String) -> Unit
     )
 }

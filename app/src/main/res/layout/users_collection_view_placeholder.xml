@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.facebook.shimmer.ShimmerFrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    app:shimmer_auto_start="true">
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/picture"
+        android:layout_width="@dimen/size_lg"
+        android:layout_height="@dimen/size_lg"
+        android:src="@drawable/ic_round_account_circle" />
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
+        android:layout_marginStart="64dp"
+        android:orientation="vertical">
+
+        <View
+            android:layout_width="132dp"
+            android:layout_height="8dp"
+            android:background="@color/colorDetail" />
+
+        <View
+            android:layout_width="96dp"
+            android:layout_height="8dp"
+            android:layout_marginTop="16dp"
+            android:background="@color/colorDetail" />
+
+    </androidx.appcompat.widget.LinearLayoutCompat>
+</com.facebook.shimmer.ShimmerFrameLayout>

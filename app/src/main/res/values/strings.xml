@@ -2,5 +2,10 @@
     <string name="app_name">PicPay</string>
     <string name="title">Contatos</string>
     <string name="error">Ocorreu um erro. Tente novamente.</string>
+    <string name="empty">Não há registros.</string>
 
+
+    <!--    region  Cache keys-->
+    <string name="masterkey">PicpayLocalCache</string>
+    <!--    endregion-->
 </resources>

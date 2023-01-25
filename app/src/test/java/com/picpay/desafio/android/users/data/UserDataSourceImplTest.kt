@@ -16,7 +16,7 @@ class UserDataSourceImplTest {
     fun setup() {
         userDataSource = UserDataSourceImpl(remote, local)
 
-        every { local.setCache(any()) } returns Unit
+        every { local.stash(any()) } returns Unit
     }
 
     @Test

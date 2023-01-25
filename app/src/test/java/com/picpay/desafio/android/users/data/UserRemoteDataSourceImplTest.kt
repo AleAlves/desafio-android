@@ -2,7 +2,7 @@ package com.picpay.desafio.android.users.data
 
 
 import com.picpay.desafio.android.users
-import com.picpay.desafio.android.users.domain.model.User
+import com.picpay.desafio.android.users.data.model.User
 import io.mockk.every
 import io.mockk.mockk
 import org.junit.Before

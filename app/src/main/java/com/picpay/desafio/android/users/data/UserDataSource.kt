@@ -1,39 +1,35 @@
 package com.picpay.desafio.android.users.data
 
-import com.picpay.desafio.android.users.domain.model.User
+import com.picpay.desafio.android.core.util.Tracker
+import com.picpay.desafio.android.users.data.model.User
 import javax.inject.Inject
 
 interface UserDataSource {
+
     fun fetch(): List<User>?
-}
-
-interface UserRemoteDataSource : UserDataSource
-
-interface UserLocalDataSource : UserDataSource {
-    fun setCache(users: List<User>?)
-}
-
-class UserLocalDataSourceImpl @Inject constructor() : UserLocalDataSource {
-
-    override fun fetch(): List<User> {
-        return listOf()
-    }
-
-    override fun setCache(users: List<User>?) {
-    }
-}
-
-class UserRemoteDataSourceImpl @Inject constructor(
-    private val service: PicPayService
-) : UserRemoteDataSource {
-
-    override fun fetch(): List<User>? = service.getUsers().execute().body()
+    fun fetchPlaceholders(): List<User> = listOf()
 }
 
 class UserDataSourceImpl @Inject constructor(
     private val remote: UserRemoteDataSource,
-    private val local: UserLocalDataSource
-) :
-    UserDataSource {
-    override fun fetch() = remote.fetch()
+    private val local: UserLocalDataSource,
+    private val tracker: Tracker
+) : UserDataSource {
+
+    override fun fetch(): List<User> {
+        return with(local) {
+            try {
+                stashFreshData()
+            } catch (e: Exception) {
+                tracker.log(e)
+            }
+            fetch() ?: listOf()
+        }
+    }
+
+    private fun stashFreshData() {
+        local.stash(remote.fetch())
+    }
+
+    override fun fetchPlaceholders(): List<User> = local.fetchPlaceholders()
 }

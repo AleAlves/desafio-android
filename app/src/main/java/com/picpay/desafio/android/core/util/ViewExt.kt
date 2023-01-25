@@ -10,7 +10,7 @@ fun ImageView.loadImage(name: String?) {
     Picasso.get()
         .load(name)
         .error(R.drawable.ic_round_account_circle)
-        .placeholder(R.drawable.user_profile_pic_loading_animation)
+        .placeholder(R.drawable.ic_round_account_circle)
         .into(this)
 }
 
