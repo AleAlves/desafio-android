@@ -13,6 +13,16 @@ import javax.inject.Inject
 
 class UsersAdapter @Inject constructor() : RecyclerView.Adapter<BaseViewHolder<UserVO>>() {
 
+    val items = AsyncListDiffer(this, object : DiffUtil.ItemCallback<UserVO>() {
+        override fun areItemsTheSame(oldItem: UserVO, newItem: UserVO): Boolean {
+            return oldItem == newItem
+        }
+
+        override fun areContentsTheSame(oldItem: UserVO, newItem: UserVO): Boolean {
+            return oldItem.hashCode() == newItem.hashCode()
+        }
+    })
+
     override fun onCreateViewHolder(
         parent: ViewGroup,
         viewType: Int
@@ -32,16 +42,6 @@ class UsersAdapter @Inject constructor() : RecyclerView.Adapter<BaseViewHolder<U
     ) {
         holder.data = items.currentList[position]
     }
-
-    val items = AsyncListDiffer(this, object : DiffUtil.ItemCallback<UserVO>() {
-        override fun areItemsTheSame(oldItem: UserVO, newItem: UserVO): Boolean {
-            return oldItem == newItem
-        }
-
-        override fun areContentsTheSame(oldItem: UserVO, newItem: UserVO): Boolean {
-            return oldItem.hashCode() == newItem.hashCode()
-        }
-    })
 
     override fun getItemCount(): Int = items.currentList.size
 }

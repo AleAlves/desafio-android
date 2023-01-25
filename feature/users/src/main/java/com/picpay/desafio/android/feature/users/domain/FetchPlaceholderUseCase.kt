@@ -5,7 +5,7 @@ import com.picpay.desafio.android.feature.users.domain.model.UserVO
 import com.picpay.desafio.core.BaseUseCase
 import javax.inject.Inject
 
-class FetchPlaceholderUsersUseCase @Inject constructor(
+class FetchPlaceholderUseCase @Inject constructor(
     private val repository: UsersRepository
 ) : BaseUseCase<List<UserVO>>() {
 

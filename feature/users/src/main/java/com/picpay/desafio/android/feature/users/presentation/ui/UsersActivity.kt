@@ -23,7 +23,6 @@ class UsersActivity : BaseActivity() {
         setContentView(binding.root)
         setupClickListeners()
         onViewState()
-        viewModel.fetch()
     }
 
     private fun setupClickListeners() {

@@ -15,7 +15,7 @@ class UserCardView(
 ) : LinearLayout(context, attributeSet) {
 
     companion object {
-        private const val ERROR = 0
+        private const val LOADING = 0
         private const val NORMAL = 1
     }
 
@@ -36,7 +36,7 @@ class UserCardView(
     private fun setupView() {
         with(binding) {
             if (userVO?.isPlaceholder == true) {
-                userCardFlipper.displayedChild = ERROR
+                userCardFlipper.displayedChild = LOADING
             } else {
                 userCardFlipper.displayedChild = NORMAL
                 onBindView()

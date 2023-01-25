@@ -2,7 +2,7 @@ package com.picpay.desafio.android.feature.users.presentation
 
 import androidx.lifecycle.viewModelScope
 import com.picpay.desafio.android.feature.users.domain.FetchUsersUseCase
-import com.picpay.desafio.android.feature.users.domain.FetchPlaceholderUsersUseCase
+import com.picpay.desafio.android.feature.users.domain.FetchPlaceholderUseCase
 import com.picpay.desafio.android.feature.users.domain.model.UserVO
 import com.picpay.desafio.core.BaseViewModel
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -13,8 +13,12 @@ import javax.inject.Inject
 @HiltViewModel
 class UserViewModel @Inject constructor(
     private val fetchUsersUseCase: FetchUsersUseCase,
-    private val placeHolderUsersUseCase: FetchPlaceholderUsersUseCase
+    private val placeHolderUsersUseCase: FetchPlaceholderUseCase
 ) : BaseViewModel<UserViewModel.UsersViewState>() {
+
+    init {
+        fetch()
+    }
 
     fun fetch() {
         viewModelScope.launch(Dispatchers.IO) {
