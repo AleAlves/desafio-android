@@ -8,17 +8,17 @@
     <TextView
         android:id="@+id/error_message_textview"
         style="@style/ScreenTitleTextView"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_margin="@dimen/size_16" />
+        android:layout_margin="@dimen/size_8"
+        android:gravity="center" />
 
     <ImageButton
         android:id="@+id/retry_button"
         android:layout_width="@dimen/size_48"
         android:layout_height="@dimen/size_48"
         android:layout_marginTop="@dimen/size_32"
-        android:background="?attr/selectableItemBackgroundBorderless"
+        android:background="?attr/selectableItemBackground"
         android:src="@drawable/ic_baseline_refresh_24" />
 
 </androidx.appcompat.widget.LinearLayoutCompat>
