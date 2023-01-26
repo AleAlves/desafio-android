@@ -27,13 +27,10 @@ class UsersActivity : BaseActivity() {
     private fun setupClickListeners() {
         with(binding) {
             usersErrorView.retryButton.setOnClickListener {
-                onFetchingUsers()
+                onFetchUsers()
             }
-            with(usersSwipeLayout) {
-                setOnRefreshListener {
-                    onFetchingUsers()
-                    isRefreshing = false
-                }
+            usersContentView.usersCollectionView.onRefreshListener {
+                onFetchUsers()
             }
         }
     }
@@ -48,7 +45,7 @@ class UsersActivity : BaseActivity() {
         }
     }
 
-    private fun onFetchingUsers() {
+    private fun onFetchUsers() {
         with(binding) {
             usersContentView.root.visible()
             usersErrorView.root.gone()

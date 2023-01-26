@@ -17,20 +17,33 @@ class UsersListView(
 
     private val adapter = UsersAdapter()
 
+    private var onRefresh: () -> Unit = {}
+
     private var binding = UsersCollectionViewBinding.inflate(
         LayoutInflater.from(context),
-        this,
-        true
+        this
     )
 
     init {
-        binding.usersCollectionRecyclerview.layoutManager = LinearLayoutManager(context).apply {
-            orientation = RecyclerView.VERTICAL
+        with(binding) {
+            usersCollectionRecyclerview.layoutManager = LinearLayoutManager(context).apply {
+                orientation = RecyclerView.VERTICAL
+            }
+            usersCollectionRecyclerview.adapter = adapter
+            with(binding.usersSwipeLayout) {
+                setOnRefreshListener {
+                    onRefresh.invoke()
+                    isRefreshing = false
+                }
+            }
         }
-        binding.usersCollectionRecyclerview.adapter = adapter
     }
 
     fun setData(vos: List<UserVO>) {
         adapter.items.submitList(vos)
+    }
+
+    fun onRefreshListener(listener: () -> Unit) {
+        onRefresh = listener
     }
 }
