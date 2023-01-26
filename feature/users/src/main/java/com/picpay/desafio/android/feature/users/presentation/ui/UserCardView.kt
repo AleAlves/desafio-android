@@ -7,7 +7,7 @@ import android.widget.LinearLayout
 import com.picpay.desafio.android.feature.users.R
 import com.picpay.desafio.android.feature.users.databinding.UsersCardViewBinding
 import com.picpay.desafio.android.feature.users.domain.model.UserVO
-import com.picpay.desafio.core.util.loadImage
+import com.picpay.desafio.core.ui.loadImage
 
 class UserCardView(
     context: Context,

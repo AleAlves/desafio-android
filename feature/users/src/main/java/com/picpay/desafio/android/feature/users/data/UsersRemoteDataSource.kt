@@ -9,5 +9,5 @@ class UserRemoteDataSourceImpl @Inject constructor(
     private val service: PicPayService
 ) : UserRemoteDataSource {
 
-    override fun fetchUsers(): List<UserModel> = service.getUsers().execute().body() ?: listOf()
+    override fun fetchUsers(): List<UserModel>? = service.getUsers().execute().body()
 }

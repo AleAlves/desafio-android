@@ -1,4 +1,4 @@
-package com.picpay.desafio.core.util
+package com.picpay.desafio.core.ui
 
 import android.view.View
 import android.widget.ImageView

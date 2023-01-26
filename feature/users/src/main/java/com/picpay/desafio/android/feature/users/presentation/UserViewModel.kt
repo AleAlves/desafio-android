@@ -41,15 +41,15 @@ class UserViewModel @Inject constructor(
     }
 
     private fun onLoadUsers(vos: List<UserVO>) {
-       setState(UsersViewState.OnLoadUsers(vos))
+       setViewState(UsersViewState.OnLoadUsers(vos))
     }
 
     private fun onLoadPlaceholders(vos: List<UserVO>) {
-        setState(UsersViewState.OnLoadPlaceholders(vos))
+        setViewState(UsersViewState.OnLoadPlaceholders(vos))
     }
 
     private fun onFailure(message: String) {
-        setState(UsersViewState.OnFailure(message))
+        setViewState(UsersViewState.OnFailure(message))
     }
 
     sealed class UsersViewState : com.picpay.desafio.core.ui.BaseViewState() {

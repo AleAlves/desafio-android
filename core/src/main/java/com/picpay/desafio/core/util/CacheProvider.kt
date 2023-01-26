@@ -3,7 +3,6 @@ package com.picpay.desafio.core.util
 import android.content.Context
 import android.content.SharedPreferences
 import com.google.gson.Gson
-import com.google.gson.reflect.TypeToken
 import dagger.hilt.android.qualifiers.ApplicationContext
 import java.lang.reflect.Type
 import javax.inject.Inject

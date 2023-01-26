@@ -61,19 +61,23 @@ dependencies {
 
     implementation fileTree(dir: 'libs', include: ['*.jar'])
 
+    //Core
     implementation("org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version")
     implementation("androidx.core:core-ktx:$androidx_core")
-    implementation("androidx.appcompat:appcompat:$appcompat_version")
-    implementation("com.google.android.material:material:$material_version")
-    implementation "androidx.activity:activity-ktx:$appcompat_version"
-    implementation("com.android.support:design:$design_version")
     implementation("com.google.code.gson:gson:$gson_version")
     implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:$lyifecyle_version")
     implementation("androidx.lifecycle:lifecycle-runtime-ktx:$lyifecyle_version")
+
+    //UI
+    implementation("androidx.swiperefreshlayout:swiperefreshlayout:$swipe_version")
+    implementation("androidx.appcompat:appcompat:$appcompat_version")
+    implementation("com.google.android.material:material:$material_version")
+    implementation("androidx.activity:activity-ktx:$appcompat_version")
+    implementation("com.android.support:design:$design_version")
     implementation("androidx.constraintlayout:constraintlayout:$constraintlayout_version")
-    implementation "de.hdodenhof:circleimageview:$circleimageview_version"
-    implementation "com.squareup.picasso:picasso:$picasso_version"
-    implementation 'com.facebook.shimmer:shimmer:0.5.0'
+    implementation("de.hdodenhof:circleimageview:$circleimageview_version")
+    implementation("com.squareup.picasso:picasso:$picasso_version")
+    implementation("com.facebook.shimmer:shimmer:$shimmer_version")
 
     //Retrofit
     implementation("com.squareup.retrofit2:retrofit:$retrofit_version")
@@ -81,13 +85,10 @@ dependencies {
     implementation("com.squareup.okhttp3:logging-interceptor:$logging_interceptor_version")
 
     //Hilt
-    implementation "com.google.dagger:hilt-android:2.44"
-    implementation 'androidx.swiperefreshlayout:swiperefreshlayout:1.1.0'
-    kapt "com.google.dagger:hilt-compiler:2.44"
-
-    //Moshi
-    implementation 'com.squareup.moshi:moshi:1.8.0'
-    kapt 'com.squareup.moshi:moshi-kotlin-codegen:1.8.0'
+    kapt("com.google.dagger:hilt-compiler:$hilt_version")
+    implementation("com.google.dagger:hilt-android:$hilt_version")
+    androidTestImplementation("com.google.dagger:hilt-android-testing:$hilt_version")
+    androidTestAnnotationProcessor("com.google.dagger:hilt-android-compiler:$hilt_version")
 
     //Coroutines
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:$coroutines_version")
@@ -111,5 +112,5 @@ dependencies {
     androidTestImplementation("androidx.test:core-ktx:$androidx_test_version")
     androidTestImplementation("io.mockk:mockk-android:$mockito_version")
 
-    implementation project(path: ':core')
+    implementation project(':core')
 }

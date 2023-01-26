@@ -1,14 +1,16 @@
 package com.picpay.desafio.core
 
+import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.picpay.desafio.core.ui.BaseViewState
 
 abstract class BaseViewModel<T : BaseViewState> : ViewModel() {
 
-    val state: MutableLiveData<T> = MutableLiveData()
+    private val _state: MutableLiveData<T> = MutableLiveData()
+    val state: LiveData<T> = _state
 
-    fun setState(newState: BaseViewState) {
-        state.postValue(newState as T)
+    fun setViewState(newState: BaseViewState) {
+        _state.postValue(newState as T)
     }
 }

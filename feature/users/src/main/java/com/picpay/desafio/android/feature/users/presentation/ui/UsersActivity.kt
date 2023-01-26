@@ -6,8 +6,8 @@ import com.picpay.desafio.android.feature.users.databinding.ActivityUsersBinding
 import com.picpay.desafio.android.feature.users.domain.model.UserVO
 import com.picpay.desafio.android.feature.users.presentation.UserViewModel
 import com.picpay.desafio.core.ui.BaseActivity
-import com.picpay.desafio.core.util.gone
-import com.picpay.desafio.core.util.visible
+import com.picpay.desafio.core.ui.gone
+import com.picpay.desafio.core.ui.visible
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -22,7 +22,6 @@ class UsersActivity : BaseActivity() {
         binding = ActivityUsersBinding.inflate(layoutInflater)
         setContentView(binding.root)
         setupClickListeners()
-        onViewState()
     }
 
     private fun setupClickListeners() {
